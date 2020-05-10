@@ -1,0 +1,9 @@
+DEVICE="br0"
+# I am getting ip from DHCP server #
+BOOTPROTO="dhcp"
+IPV6INIT="yes"
+IPV6_AUTOCONF="yes"
+ONBOOT="yes"
+TYPE="Bridge"
+DELAY="0"
+
