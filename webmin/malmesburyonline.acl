@@ -1,0 +1,11 @@
+rpc=0
+uedit_mode=5
+gedit_mode=2
+feedback=0
+readonly=
+fileunix=malmesburyonline
+uedit=malmesburyonline
+desc_virtual-server=Virtual Email
+gedit=malmesburyonline
+negative=1
+root=/home/malmesburyonline

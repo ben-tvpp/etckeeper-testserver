@@ -1,0 +1,6 @@
+noconfig=1
+add=0
+global=0
+view=1
+user=tvpp.onlne
+dir=/var/log/virtualmin/tvpp-onlne.freeddns.org_access_log

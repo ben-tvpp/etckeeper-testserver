@@ -1,0 +1,15 @@
+create=0
+noconfig=1
+types=0 1 2 3 4 5 6 7 9 10 11 12 13 14 15 16 18 19 20
+aliasdir=/home/tvpp.onlne
+vuser=0
+test_always=1
+stop=0
+names=0
+global=0
+pipe=0
+dirsmode=2
+dir=/home/tvpp.onlne
+vaddr=0
+dirs=ServerName ServerAlias SSLEngine SSLCertificateFile SSLCertificateKeyFile SSLCACertificateFile
+virts=tvpp-onlne.freeddns.org tvpp-onlne.freeddns.org:80

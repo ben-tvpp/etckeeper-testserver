@@ -1,0 +1,11 @@
+create=0
+noconfig=1
+pass=hid2Big5
+stop=0
+dbs=malmesburyonline
+buser=malmesburyonline
+edonly=0
+bpath=/
+delete=0
+user=malmesburyonline
+perms=0

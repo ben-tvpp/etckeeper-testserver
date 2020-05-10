@@ -1,0 +1,9 @@
+#!/bin/sh
+echo Starting Usermin server in /usr/libexec/usermin
+trap '' 1
+LANG=
+export LANG
+#PERLIO=:raw
+unset PERLIO
+export PERLIO
+exec /usr/libexec/usermin/miniserv.pl /etc/usermin/miniserv.conf

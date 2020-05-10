@@ -1,0 +1,11 @@
+create=0
+noconfig=1
+pass=hid2Big5
+stop=0
+dbs=tvpp_onlne
+buser=tvpp.onlne
+edonly=0
+bpath=/
+delete=0
+user=tvpp.onlne
+perms=0

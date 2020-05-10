@@ -1,0 +1,11 @@
+hours=*
+arg0=bw.pl
+active=1
+days=*
+mins=0
+user=root
+weekdays=*
+id=15517166588061
+func=run_cron_script
+months=*
+module=virtual-server

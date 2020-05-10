@@ -1,0 +1,8 @@
+plugins=/usr/share/awstats
+noedit=1
+lang=/usr/share/awstats
+icons=/usr/share/awstats/wwwroot/icon
+awstats=/usr/share/awstats/wwwroot/cgi-bin/awstats.pl
+nocron=0
+lib=/usr/share/awstats
+config_dir=/etc/awstats

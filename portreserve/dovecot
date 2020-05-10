@@ -1,0 +1,5 @@
+imap/tcp
+imaps/tcp
+pop3/tcp
+pop3s/tcp
+sieve/tcp

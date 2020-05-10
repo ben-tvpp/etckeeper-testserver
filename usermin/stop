@@ -1,0 +1,4 @@
+#!/bin/sh
+echo Stopping Usermin server in /usr/libexec/usermin
+pidfile=`grep "^pidfile=" /etc/usermin/miniserv.conf | sed -e 's/pidfile=//g'`
+kill `cat $pidfile`

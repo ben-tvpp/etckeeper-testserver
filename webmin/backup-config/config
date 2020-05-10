@@ -1,0 +1,7 @@
+configfile=
+nofiles=
+apply=1
+dest=/root/webmin_backup/29Mar2019.tar
+mods=adsl-client apache bind8 bacula-backup bandwidth init burner custom dhcpd mount dovecot fail2ban fetchmail grub heartbeat ipsec inittab jabber krb5 ldap-server firewall firewall6 raid logrotate lvm mailcap mon mysql exports nis net xinetd inetd openslp pam phpini pap ppp-client pptp-client pptp-server postfix postgresql proftpd procmail qmailadmin sshd stunnel samba at cron sendmail shorewall shorewall6 spam squid sarg syslog syslog-ng time status tcpwrappers usermin useradmin virtual-server vgetty wuftpd webalizer webmin servers acl iscsi-client iscsi-server idmapd
+webmin_subs=0
+date_subs=0

@@ -1,0 +1,9 @@
+/var/opt/rh/rh-php70/log/php-fpm/*log {
+    missingok
+    notifempty
+    sharedscripts
+    delaycompress
+    postrotate
+	/bin/kill -SIGUSR1 `cat /var/opt/rh/rh-php70/run/php-fpm/php-fpm.pid 2>/dev/null` 2>/dev/null || true
+    endscript
+}

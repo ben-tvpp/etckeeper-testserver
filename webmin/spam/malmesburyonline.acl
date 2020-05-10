@@ -1,0 +1,7 @@
+noconfig=1
+awl_groups=malmesburyonline
+files=/etc/webmin/virtual-server/spam/15869677273758/virtualmin.cf
+procmailrc=/etc/webmin/virtual-server/procmail/15869677273758
+file=/etc/webmin/virtual-server/spam/15869677273758/virtualmin.cf
+procmailrcs=/etc/webmin/virtual-server/procmail/15869677273758
+avail=white,score,report,user,header,awl

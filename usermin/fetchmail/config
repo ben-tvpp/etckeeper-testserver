@@ -1,0 +1,3 @@
+can_daemon=1
+can_cron=1
+fetchmail_path=fetchmail

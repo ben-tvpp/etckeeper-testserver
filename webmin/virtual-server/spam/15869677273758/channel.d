@@ -1,0 +1,1 @@
+/etc/mail/spamassassin/channel.d

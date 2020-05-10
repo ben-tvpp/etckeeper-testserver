@@ -1,0 +1,6 @@
+noconfig=1
+extras=/var/log/virtualmin/malmesburyonline.freeddns.org_access_log Apache access log for malmesburyonline.freeddns.org	/var/log/virtualmin/malmesburyonline.freeddns.org_error_log Apache error log for malmesburyonline.freeddns.org
+noedit=1
+others=0
+syslog=0
+any=0

@@ -1,0 +1,14 @@
+DROPPRIVS=yes
+:0cw
+| /etc/webmin/virtual-server/clam-wrapper.pl 
+VIRUSMODE=1
+:0e
+/dev/null
+VIRUSMODE=0
+:0fw
+| /bin/spamassassin --siteconfigpath /etc/webmin/virtual-server/spam/158708202520225
+SPAMMODE=1
+:0
+* ^X-Spam-Status: Yes
+$HOME/Maildir/.spam/
+SPAMMODE=0

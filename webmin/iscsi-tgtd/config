@@ -1,0 +1,8 @@
+start_cmd=systemctl start tgtd
+tgtadm=tgtadm
+tgtd=tgtd
+config_file=/etc/tgt/tgtd.conf
+stop_cmd=systemctl stop tgtd
+restart_cmd=systemctl restart tgtd
+tgtadmin=tgt-admin
+init_name=tgtd

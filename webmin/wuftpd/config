@@ -1,0 +1,8 @@
+ftpusers=/etc/ftpusers
+ftpgroups=/etc/ftpgroups
+ftpconversions=/etc/ftpconversions
+ftpd_path=/usr/sbin/in.ftpd
+log_file=/var/log/xferlog
+pid_file=/var/run/ftpd.pid
+ftpaccess=/etc/ftpaccess
+ftphosts=/etc/ftphosts

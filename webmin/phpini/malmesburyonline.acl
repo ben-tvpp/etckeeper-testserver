@@ -1,0 +1,6 @@
+noconfig=1
+manual=1
+anyfile=0
+global=0
+user=malmesburyonline
+php_inis=/home/malmesburyonline/etc/php7.0/php.ini=PHP 7.0 configuration for malmesburyonline.freeddns.org	/home/malmesburyonline/etc/php7.3/php.ini=PHP 7.3 configuration for malmesburyonline.freeddns.org

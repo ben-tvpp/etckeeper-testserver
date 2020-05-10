@@ -1,0 +1,6 @@
+noconfig=1
+extras=/var/log/virtualmin/tvpp-onlne.freeddns.org_access_log Apache access log for tvpp-onlne.freeddns.org	/var/log/virtualmin/tvpp-onlne.freeddns.org_error_log Apache error log for tvpp-onlne.freeddns.org
+noedit=1
+others=0
+syslog=0
+any=0

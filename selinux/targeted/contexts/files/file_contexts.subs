@@ -1,0 +1,4 @@
+/opt/rh/rh-php70/root /
+/etc/opt/rh/rh-php70 /etc
+/usr/lib/systemd/system/rh-php70-php-fpm.service /usr/lib/systemd/system/php-fpm.service
+/var/opt/rh/rh-php70 /var

@@ -1,0 +1,11 @@
+hours=15
+arg0=scriptlatest.pl
+active=1
+days=*
+mins=26
+user=root
+weekdays=*
+func=run_cron_script
+id=155170822821590
+months=*
+module=virtual-server

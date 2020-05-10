@@ -1,0 +1,10 @@
+start_cmd=systemctl start proftpd
+ftpusers=/etc/ftpusers
+test_always=0
+test_manual=0
+defines_file=/etc/sysconfig/proftpd
+stop_cmd=systemctl stop proftpd
+proftpd_path=/usr/sbin/proftpd
+test_config=1
+proftpd_conf=/etc/proftpd.conf
+defines_name=PROFTPD_OPTIONS

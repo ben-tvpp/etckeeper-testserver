@@ -1,0 +1,6 @@
+noconfig=1
+manual=1
+anyfile=0
+global=0
+user=tvpp.onlne
+php_inis=/home/tvpp.onlne/etc/php7.0/php.ini=PHP 7.0 configuration for tvpp-onlne.freeddns.org	/home/tvpp.onlne/etc/php7.3/php.ini=PHP 7.3 configuration for tvpp-onlne.freeddns.org

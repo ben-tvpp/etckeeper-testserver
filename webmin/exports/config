@@ -1,0 +1,3 @@
+apply_cmd=exportfs -r
+exports_file=/etc/exports
+restart_command=service nfs restart

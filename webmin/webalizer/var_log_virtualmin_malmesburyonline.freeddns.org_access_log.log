@@ -1,0 +1,11 @@
+hours=0
+over=0
+clear=0
+days=*
+dir=/home/malmesburyonline/public_html/stats
+mins=22
+sched=1
+user=malmesburyonline
+weekdays=*
+type=0
+months=*
