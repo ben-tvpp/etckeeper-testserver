@@ -1,0 +1,7 @@
+[rightscale-epel]
+name=RightScale Software
+baseurl=http://mirror.rightscale.com/rightscale_software/centos/\$releasever/x86_64/archive/latest/
+enabled=1
+gpgcheck=1
+gpgkey=http://mirror.rightscale.com/rightlink/rightscale.pub
+priority=1
