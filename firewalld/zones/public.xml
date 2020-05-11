@@ -24,4 +24,5 @@
   <port protocol="udp" port="53"/>
   <port protocol="tcp" port="10051"/>
   <port protocol="tcp" port="10050"/>
+  <port protocol="tcp" port="5900"/>
 </zone>
