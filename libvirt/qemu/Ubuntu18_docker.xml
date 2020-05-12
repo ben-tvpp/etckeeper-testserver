@@ -1,13 +1,13 @@
 <!--
 WARNING: THIS IS AN AUTO-GENERATED FILE. CHANGES TO IT ARE LIKELY TO BE
 OVERWRITTEN AND LOST. Changes to this xml configuration should be made using:
-  virsh edit centos7-docker
+  virsh edit Ubuntu18_docker
 or other application using the libvirt API.
 -->
 
 <domain type='kvm'>
-  <name>centos7-docker</name>
-  <uuid>4ffef895-292e-4b4e-962a-bab8daa39f7b</uuid>
+  <name>Ubuntu18_docker</name>
+  <uuid>2675ca3f-2964-4c68-97c6-db7059ff310c</uuid>
   <memory unit='KiB'>1048576</memory>
   <currentMemory unit='KiB'>1048576</currentMemory>
   <vcpu placement='static'>1</vcpu>
@@ -41,9 +41,9 @@ or other application using the libvirt API.
     <emulator>/usr/libexec/qemu-kvm</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='qcow2'/>
-      <source file='/data/kvm_images/centos7-docker.qcow2'/>
+      <source file='/data/kvm_images/Ubuntu18-docker.qcow2'/>
       <target dev='vda' bus='virtio'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
     </disk>
     <disk type='file' device='cdrom'>
       <driver name='qemu' type='raw'/>
@@ -70,11 +70,8 @@ or other application using the libvirt API.
     <controller type='ide' index='0'>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
     </controller>
-    <controller type='virtio-serial' index='0'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x05' function='0x0'/>
-    </controller>
     <interface type='bridge'>
-      <mac address='52:54:00:ff:92:7f'/>
+      <mac address='52:54:00:45:ca:d1'/>
       <source bridge='br0'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
@@ -87,10 +84,6 @@ or other application using the libvirt API.
     <console type='pty'>
       <target type='serial' port='0'/>
     </console>
-    <channel type='unix'>
-      <target type='virtio' name='org.qemu.guest_agent.0'/>
-      <address type='virtio-serial' controller='0' bus='0' port='1'/>
-    </channel>
     <input type='tablet' bus='usb'>
       <address type='usb' bus='0' port='1'/>
     </input>
@@ -104,11 +97,7 @@ or other application using the libvirt API.
       <address type='pci' domain='0x0000' bus='0x00' slot='0x02' function='0x0'/>
     </video>
     <memballoon model='virtio'>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x07' function='0x0'/>
+      <address type='pci' domain='0x0000' bus='0x00' slot='0x06' function='0x0'/>
     </memballoon>
-    <rng model='virtio'>
-      <backend model='random'>/dev/urandom</backend>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0'/>
-    </rng>
   </devices>
 </domain>
