@@ -7,8 +7,8 @@ or other application using the libvirt API.
 
 <domain type='kvm'>
   <name>Ubuntu18_docker</name>
-  <uuid>c3240c70-8f93-4452-9663-a2b3284819b1</uuid>
-  <memory unit='KiB'>1048576</memory>
+  <uuid>7a515f29-d066-42b1-b034-84ee14f98256</uuid>
+  <memory unit='KiB'>2097152</memory>
   <currentMemory unit='KiB'>1048576</currentMemory>
   <vcpu placement='static'>1</vcpu>
   <os>
@@ -71,7 +71,7 @@ or other application using the libvirt API.
       <address type='pci' domain='0x0000' bus='0x00' slot='0x01' function='0x1'/>
     </controller>
     <interface type='bridge'>
-      <mac address='52:54:00:3f:06:00'/>
+      <mac address='52:54:00:5a:50:71'/>
       <source bridge='br0'/>
       <model type='virtio'/>
       <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
