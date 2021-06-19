@@ -1,11 +1,3 @@
-
-@roundcube_tables = ( 'cache', 'contacts', 'identities', 'session',
-		      'users', 'messages', 'contactgroupmembers',
-		      'contactgroups', 'contacts',
-		      'cache_index', 'cache_messages', 'cache_thread',
-		      'cache_shared', 'dictionary', 'searches', 'system',
-		      'users' );
-
 # script_roundcube_desc()
 sub script_roundcube_desc
 {
@@ -19,21 +11,20 @@ return ( "php" );
 
 sub script_roundcube_longdesc
 {
-return "RoundCube Webmail is a browser-based multilingual IMAP client with an application-like user interface.";
+return "RoundCube Webmail is a browser-based multilingual IMAP client with an application-like user interface";
 }
 
 # script_roundcube_versions()
 sub script_roundcube_versions
 {
-return ( "1.4.11", "1.2.13" );
+return ( "1.4.11", "1.3.16" );
 }
 
 sub script_roundcube_version_desc
 {
 local ($ver) = @_;
-return &compare_versions($ver, "1.4") >= 0 ? "$ver (Latest)" :
-       &compare_versions($ver, "1.3") >= 0 ? "$ver (Old stable)" :
-       &compare_versions($ver, "1.2") >= 0 ? "$ver (LTS)" :
+return &compare_versions($ver, "1.4") >= 0 ? "$ver" :
+       &compare_versions($ver, "1.3") >= 0 ? "$ver (LTS)" :
 					     "$ver (Un-supported)";
 }
 
@@ -44,18 +35,36 @@ return "Email";
 
 sub script_roundcube_php_modules
 {
-return ("mysql", "xml");
+local ($d, $ver, $phpver, $opts) = @_;
+local ($dbtype, $dbname) = split(/_/, $opts->{'db'}, 2);
+local @modules = ( "xml", "zip", "dom", "iconv", "mbstring" );
+push(@modules, $dbtype eq "mysql" ? "mysql" : "pgsql");
+return @modules;
 }
 
 sub script_roundcube_php_optional_modules
 {
-return ("mbstring");
+return ( "openssl", "sockets" );
 }
 
 sub script_roundcube_dbs
 {
-return ("mysql");
+return ("mysql", "postgres");
 }
+
+# script_roundcube_php_vars(&domain)
+# Returns an array of extra PHP variables needed for this script
+sub script_roundcube_php_vars
+{
+return ([ 'memory_limit', '64M', '+' ],
+        [ 'max_execution_time', 300, '+' ],
+        [ 'file_uploads', 'On' ],
+        [ 'upload_max_filesize', '25M', '+' ],
+        [ 'post_max_size', '25M', '+' ],
+        [ 'session.auto_start', 'Off' ],
+	    [ 'mbstring.func_overload', 'Off' ]);
+}
+
 
 sub script_roundcube_php_vers
 {
@@ -71,7 +80,7 @@ sub script_roundcube_depends
 {
 local ($d, $ver, $sinfo, $phpver) = @_;
 local @rv;
-my $wantver = $ver >= 0.9 ? "5.3.7" : 5.2;
+my $wantver = &script_roundcube_php_fullver($d, $ver, $sinfo);
 local $phpv = &get_php_version($phpver || 5, $d);
 if (!$phpv) {
 	push(@rv, "Could not work out exact PHP version");
@@ -82,11 +91,10 @@ elsif (&compare_versions($phpv, $wantver) < 0) {
 return @rv;
 }
 
-# script_roundcube_php_vars(&domain)
-# Returns an array of extra PHP variables needed for this script
-sub script_roundcube_php_vars
+sub script_roundcube_php_fullver
 {
-return ( [ 'suhosin.session.encrypt', 'Off' ] );
+local ($d, $ver, $sinfo, $phpver) = @_;
+return $ver >= 0.9 ? "5.3.7" : 5.2;
 }
 
 # script_roundcube_params(&domain, version, &upgrade-info)
@@ -106,7 +114,7 @@ if ($upgrade) {
 	}
 else {
 	# Show editable install options
-	local @dbs = &domain_databases($d, [ "mysql" ]);
+	local @dbs = &domain_databases($d, [ "mysql", "postgres" ]);
 	$rv .= &ui_table_row("Database for RoundCube preferences",
 		     &ui_database_select("db", undef, \@dbs, $d, "roundcube"));
 	$rv .= &ui_table_row("Install sub-directory under <tt>$hdir</tt>",
@@ -148,8 +156,7 @@ if (-r "$opts->{'dir'}/config/db.inc.php") {
 	return "RoundCube appears to be already installed in the selected directory";
 	}
 local ($dbtype, $dbname) = split(/_/, $opts->{'db'}, 2);
-local $clash = &find_database_table($dbtype, $dbname,
-				    join("|", @roundcube_tables));
+local $clash = &find_database_table($dbtype, $dbname, "system|filestore|contacts|users");
 $clash && return "RoundCube appears to be already using the selected database (table $clash)";
 return undef;
 }
@@ -303,11 +310,11 @@ if (!$upgrade) {
 	# Run SQL setup script
 	&require_mysql();
 	local $sqlfile;
-	if ($mysql::mysql_version >= 5 && $ver < 0.2) {
-		$sqlfile = "$opts->{'dir'}/SQL/mysql5.initial.sql";
+	if ($dbtype eq "mysql") {
+		$sqlfile = "$opts->{'dir'}/SQL/mysql.initial.sql";
 		}
 	else {
-		$sqlfile = "$opts->{'dir'}/SQL/mysql.initial.sql";
+		$sqlfile = "$opts->{'dir'}/SQL/postgres.initial.sql";
 		}
 	local ($ex, $out) = &mysql::execute_sql_file($dbname, $sqlfile,
 					       	     $dbuser, $dbpass);
@@ -357,19 +364,18 @@ sub script_roundcube_uninstall
 local ($d, $version, $opts) = @_;
 
 # Remove roundcube tables from the database
-&cleanup_script_database($d, $opts->{'db'}, \@roundcube_tables);
-
-# Remove the contents of the target directory
-local $derr = &delete_script_install_directory($d, $opts);
-return (0, $derr) if ($derr);
+&cleanup_script_database($d, $opts->{'db'}, "(.*)");
 
 # Take out the DB
 if ($opts->{'newdb'}) {
 	&delete_script_database($d, $opts->{'db'});
 	}
 
-return (1, $dbname ? "RoundCube directory and tables deleted."
-		   : "RoundCube directory deleted.");
+# Remove the contents of the target directory
+local $derr = &delete_script_install_directory($d, $opts);
+return (0, $derr) if ($derr);
+
+return (1, "RoundCube directory and tables deleted.");
 }
 
 # script_roundcube_latest(version)
@@ -378,13 +384,12 @@ sub script_roundcube_latest
 {
 local ($ver) = @_;
 return ( "http://roundcube.net/download/",
-	 $ver >= 1.4 ? "roundcubemail-([0-9\\.]+)-complete.tar.gz" :
-		       "roundcubemail-(1\\.[0-2]\\.[0-9\\.]+)-complete.tar.gz" );
+         "roundcubemail-([0-9\\.]+)-complete.tar.gz");
 }
 
 sub script_roundcube_site
 {
-return 'http://www.roundcube.net/';
+return 'https://www.roundcube.net/';
 }
 
 sub script_roundcube_gpl
