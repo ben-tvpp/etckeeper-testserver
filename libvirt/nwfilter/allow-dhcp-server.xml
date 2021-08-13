@@ -6,7 +6,7 @@ or other application using the libvirt API.
 -->
 
 <filter name='allow-dhcp-server' chain='ipv4' priority='-700'>
-  <uuid>c736cb1f-7f70-4f0d-b23e-fdf4036a5aa5</uuid>
+  <uuid>46d6f3f2-27a8-47fd-98bc-9307f8077395</uuid>
   <rule action='accept' direction='out' priority='100'>
     <ip srcipaddr='0.0.0.0' dstipaddr='255.255.255.255' protocol='udp' srcportstart='68' dstportstart='67'/>
   </rule>

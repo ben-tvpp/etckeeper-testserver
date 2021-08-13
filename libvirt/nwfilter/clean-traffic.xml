@@ -6,7 +6,7 @@ or other application using the libvirt API.
 -->
 
 <filter name='clean-traffic' chain='root'>
-  <uuid>9af2b06d-ec83-45eb-b6ee-96817ba3b238</uuid>
+  <uuid>098bb152-0b6c-4163-8c95-10a75dabf66d</uuid>
   <filterref filter='no-mac-spoofing'/>
   <filterref filter='no-ip-spoofing'/>
   <rule action='accept' direction='out' priority='-650'>

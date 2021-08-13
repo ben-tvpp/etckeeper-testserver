@@ -6,7 +6,7 @@ or other application using the libvirt API.
 -->
 
 <filter name='no-ip-spoofing' chain='ipv4-ip' priority='-710'>
-  <uuid>8a322d4f-e7b6-44c2-8012-154f3e3e224c</uuid>
+  <uuid>df7e5674-4472-403b-9a1b-23878bb3bb9e</uuid>
   <rule action='return' direction='out' priority='100'>
     <ip srcipaddr='0.0.0.0' protocol='udp'/>
   </rule>

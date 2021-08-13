@@ -6,6 +6,6 @@ or other application using the libvirt API.
 -->
 
 <filter name='allow-arp' chain='arp' priority='-500'>
-  <uuid>e14f9915-59fe-42eb-9237-67afa48a5025</uuid>
+  <uuid>faa4569d-ef5a-4365-8491-809b94900e98</uuid>
   <rule action='accept' direction='inout' priority='500'/>
 </filter>

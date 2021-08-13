@@ -1,5 +1,5 @@
 #!/usr/bin/perl
-open(CONF, "/etc/webmin/miniserv.conf") || die "Failed to open /etc/webmin/miniserv.conf : $!";
+open(CONF, "</etc/webmin/miniserv.conf") || die "Failed to open /etc/webmin/miniserv.conf : $!";
 while(<CONF>) {
         $root = $1 if (/^root=(.*)/);
         }

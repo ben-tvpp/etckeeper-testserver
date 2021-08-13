@@ -3,7 +3,7 @@
 # put this file in /etc/postfix or specify its path
 # with --whitelist-clients=xxx
 #
-# postgrey version: 1.34, build date: 2011-05-04
+# postgrey version: 1.37, build date: 2016-09-22
 
 # greylisting.org: Southwest Airlines (unique sender, no retry)
 southwest.com
@@ -144,14 +144,14 @@ flymonarch.com
 # ibm.com (big pool, reported by Casey Peel)
 ibm.com
 # messagelabs.com (big pool, reported by John Tobin)
-/^mail\d+\.messagelabs\.com$/
+messagelabs.com
 # ptb.de (slow, reported by Joachim Schoenberg)
 berlin.ptb.de
 # registrarmail.net (unique sender names, reported by Simon Waters)
 registrarmail.net
 # google.com (big pool, reported by Matthias Dyer, Martin Toft)
 google.com
-# orange.fr (big pool, reported by Loïc Le Loarer)
+# orange.fr (big pool, reported by LoÃ¯c Le Loarer)
 /^smtp\d+\.orange\.fr$/
 # citigroup.com (slow retry, reported by Michael Monnerie)
 /^smtp\d+.citigroup.com$/
@@ -196,6 +196,8 @@ ebay.com
 yahoo.com
 # 2008-11-07: facebook (no retry, reported by Tim Freeman)
 /^outmail\d+\.sctm\.tfbnw\.net$/
+# 2016-09-13: facebook (updated names, github #30)
+outmail.facebook.com
 # 2009-02-10: server14.cyon.ch (long retry, reported by Alex Beckert)
 server14.cyon.ch
 # 2009-08-19: 126.com (big pool)
@@ -218,3 +220,55 @@ postini.com
 /^mx.*\.evanzo-server\.de$/
 # 2011-05-02: upcmail.net (big pool, reported by Michael Monnerie)
 upcmail.net
+# 2013-12-18: orange.fr (big pool, reported by fulax)
+/^smtp\d+\.smtpout\.orange\.fr$/
+# 2014-01-29: gmx/web.de/1&1 (long retry, reported by Axel Beckert)
+mout-xforward.gmx.net
+mout-xforward.web.de
+mout-xforward.kundenserver.de
+mout-xforward.perfora.net
+# 2014-12-18: mail.ru (retries from fallback*.mail.ru, reported by Andriy Yurchuk)
+/^fallback\d+\.mail\.ru$/
+# French tax authority, no retry
+dgfip.finances.gouv.fr 
+# 2015-06-10: magisto.com (requested by postmaster)
+/^o\d+\.ntdc\.magisto\.com$/
+# 2015-07-23: outlook.com (github #20)
+outlook.com
+# 2015-08-19 (big pool)
+mail.alibaba.com
+mail.aliyun.com
+# 2016-09-13: amazonses.com (github #35, #37)
+smtp-out.amazonses.com
+# 2016-09-13: startcom.org (github #7)
+startcom.org
+# 2016-09-20: Microsoft Exchange Online (Office 365)
+23.103.132.0/22
+23.103.136.0/21
+23.103.144.0/20
+23.103.198.0/23
+23.103.200.0/21
+40.92.0.0/14
+40.107.0.0/16  
+65.55.88.0/24
+65.55.169.0/24
+94.245.120.64/26
+104.47.0.0/17
+134.170.101.0/24
+134.170.140.0/24
+134.170.171.0/24
+157.55.133.0/25
+157.56.87.192/26
+157.56.110.0/23
+157.56.112.0/24
+157.56.116.0/25
+157.56.120.0/25
+207.46.51.64/26
+207.46.100.0/24
+207.46.108.0/25
+207.46.163.0/24
+213.199.154.0/24
+213.199.180.128/26
+216.32.180.0/23
+2a01:111:f400:7c00::/54
+2a01:111:f400:fc00::/54

@@ -6,7 +6,7 @@ or other application using the libvirt API.
 -->
 
 <filter name='no-mac-spoofing' chain='mac' priority='-800'>
-  <uuid>88faa1f9-2f34-4a0d-a5c1-73c0c087ebd6</uuid>
+  <uuid>7b7f6c42-cb81-46a8-aa2f-028e968db5cf</uuid>
   <rule action='return' direction='out' priority='500'>
     <mac srcmacaddr='$MAC'/>
   </rule>

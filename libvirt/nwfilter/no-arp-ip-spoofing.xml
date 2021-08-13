@@ -6,7 +6,7 @@ or other application using the libvirt API.
 -->
 
 <filter name='no-arp-ip-spoofing' chain='arp-ip' priority='-510'>
-  <uuid>abdc0249-7043-4a54-92c3-41857511868f</uuid>
+  <uuid>661e9f2b-06fd-42d0-a1ca-c462f5aa0416</uuid>
   <rule action='return' direction='out' priority='400'>
     <arp arpsrcipaddr='$IP'/>
   </rule>

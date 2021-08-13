@@ -6,7 +6,7 @@ or other application using the libvirt API.
 -->
 
 <filter name='qemu-announce-self' chain='root'>
-  <uuid>85811ed4-559a-497b-9914-c87785a90ec3</uuid>
+  <uuid>1c736a48-3094-494c-9472-965483396e2d</uuid>
   <rule action='accept' direction='out' priority='500'>
     <mac protocolid='0x835'/>
   </rule>

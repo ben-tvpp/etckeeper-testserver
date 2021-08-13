@@ -6,7 +6,7 @@ or other application using the libvirt API.
 -->
 
 <filter name='no-mac-broadcast' chain='ipv4' priority='-700'>
-  <uuid>813d3a2f-af3b-44f5-95c6-d639fd42f280</uuid>
+  <uuid>9f330980-5212-42cc-aa2d-354c960b5a1c</uuid>
   <rule action='drop' direction='out' priority='500'>
     <mac dstmacaddr='ff:ff:ff:ff:ff:ff'/>
   </rule>

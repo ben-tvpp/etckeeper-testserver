@@ -6,7 +6,7 @@ or other application using the libvirt API.
 -->
 
 <filter name='qemu-announce-self-rarp' chain='rarp' priority='-400'>
-  <uuid>15cae33e-8cb5-4d95-be46-575e267fab87</uuid>
+  <uuid>64fa73dc-b2ff-4eb0-9f18-bfff29a4c1e8</uuid>
   <rule action='accept' direction='out' priority='500'>
     <rarp srcmacaddr='$MAC' dstmacaddr='ff:ff:ff:ff:ff:ff' opcode='Request_Reverse' arpsrcmacaddr='$MAC' arpdstmacaddr='$MAC' arpsrcipaddr='0.0.0.0' arpdstipaddr='0.0.0.0'/>
   </rule>

@@ -6,7 +6,7 @@ or other application using the libvirt API.
 -->
 
 <filter name='no-arp-mac-spoofing' chain='arp-mac' priority='-520'>
-  <uuid>bebfef21-d8d7-4afe-9eef-632b7698fb99</uuid>
+  <uuid>8039c030-bdcd-448c-8998-49779204d0c4</uuid>
   <rule action='return' direction='out' priority='350'>
     <arp arpsrcmacaddr='$MAC'/>
   </rule>

@@ -6,6 +6,6 @@ or other application using the libvirt API.
 -->
 
 <filter name='no-other-l2-traffic' chain='root'>
-  <uuid>98a04714-f8d2-490c-acb1-d1009230ed35</uuid>
+  <uuid>e9b7fcad-52dc-4a10-8d96-b3387417b048</uuid>
   <rule action='drop' direction='inout' priority='1000'/>
 </filter>

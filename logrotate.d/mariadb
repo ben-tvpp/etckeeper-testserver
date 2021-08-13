@@ -1,8 +1,8 @@
 # This logname can be set in /etc/my.cnf
 # by setting the variable "log-error"
-# in the [mysqld_safe] section as follows:
+# in the [mysqld] section as follows:
 #
-# [mysqld_safe]
+# [mysqld]
 # log-error=/var/log/mariadb/mariadb.log
 #
 # If the root user has a password you have to create a
@@ -18,12 +18,10 @@
 # ATTENTION: This /root/.my.cnf should be readable ONLY
 # for root !
 
-# Then, un-comment the following lines to enable rotation of mysql's log file:
-
 #/var/log/mariadb/mariadb.log {
 #        create 640 mysql mysql
 #        notifempty
-#	daily
+#        daily
 #        rotate 3
 #        missingok
 #        compress

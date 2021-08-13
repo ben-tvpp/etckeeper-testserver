@@ -6,6 +6,6 @@ or other application using the libvirt API.
 -->
 
 <filter name='no-other-rarp-traffic' chain='rarp' priority='-400'>
-  <uuid>e68e1c31-e7ab-4221-a519-d141652fcbd3</uuid>
+  <uuid>fc43aa39-b60f-4362-b3de-a175348ee091</uuid>
   <rule action='drop' direction='inout' priority='1000'/>
 </filter>

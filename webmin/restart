@@ -1,2 +1,2 @@
 #!/bin/sh
-/etc/webmin/stop && /etc/webmin/start
+/etc/webmin/stop --kill && /etc/webmin/start

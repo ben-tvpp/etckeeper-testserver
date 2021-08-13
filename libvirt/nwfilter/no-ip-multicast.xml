@@ -6,7 +6,7 @@ or other application using the libvirt API.
 -->
 
 <filter name='no-ip-multicast' chain='ipv4' priority='-700'>
-  <uuid>fc009022-203f-43f8-b9a1-b16ef4714c38</uuid>
+  <uuid>b8515dcf-d1eb-4314-a39d-e993b305185a</uuid>
   <rule action='drop' direction='out' priority='500'>
     <ip dstipaddr='224.0.0.0' dstipmask='4'/>
   </rule>

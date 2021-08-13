@@ -2,3 +2,4 @@ noconfig=1
 mode=1
 allow=0
 users=malmesburyonline
+stop=0

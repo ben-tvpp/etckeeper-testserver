@@ -6,6 +6,6 @@ or other application using the libvirt API.
 -->
 
 <filter name='allow-incoming-ipv4' chain='ipv4' priority='-700'>
-  <uuid>81a13d53-6ea3-485e-80aa-b1bc42f760c7</uuid>
+  <uuid>e6a31518-942e-4c8e-a251-f6949bddd050</uuid>
   <rule action='accept' direction='in' priority='500'/>
 </filter>

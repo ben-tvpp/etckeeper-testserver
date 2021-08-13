@@ -1,7 +1,7 @@
 create=0
 noconfig=1
 types=0 1 2 3 4 5 6 7 9 10 11 12 13 14 15 16 18 19 20
-aliasdir=/home/malmesburyonline
+aliasdir=/home/back/malmesburyonline/1603854001_Wed_28Oct2020_0300
 vuser=0
 test_always=1
 stop=0
@@ -9,7 +9,7 @@ names=0
 global=0
 pipe=0
 dirsmode=2
-dir=/home/malmesburyonline
+dir=/home/back/malmesburyonline/1603854001_Wed_28Oct2020_0300
 vaddr=0
 dirs=ServerName ServerAlias SSLEngine SSLCertificateFile SSLCertificateKeyFile SSLCACertificateFile
 virts=malmesburyonline.freeddns.org malmesburyonline.freeddns.org:80
