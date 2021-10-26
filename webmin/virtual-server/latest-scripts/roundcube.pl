@@ -17,7 +17,7 @@ return "RoundCube Webmail is a browser-based multilingual IMAP client with an ap
 # script_roundcube_versions()
 sub script_roundcube_versions
 {
-return ( "1.4.11", "1.3.16" );
+return ( "1.5.0", "1.3.16" );
 }
 
 sub script_roundcube_version_desc
@@ -62,7 +62,7 @@ return ([ 'memory_limit', '64M', '+' ],
         [ 'upload_max_filesize', '25M', '+' ],
         [ 'post_max_size', '25M', '+' ],
         [ 'session.auto_start', 'Off' ],
-	    [ 'mbstring.func_overload', 'Off' ]);
+	[ 'mbstring.func_overload', 'Off' ]);
 }
 
 
@@ -76,25 +76,10 @@ sub script_roundcube_release
 return 3;	# For folders path fix
 }
 
-sub script_roundcube_depends
-{
-local ($d, $ver, $sinfo, $phpver) = @_;
-local @rv;
-my $wantver = &script_roundcube_php_fullver($d, $ver, $sinfo);
-local $phpv = &get_php_version($phpver || 5, $d);
-if (!$phpv) {
-	push(@rv, "Could not work out exact PHP version");
-	}
-elsif (&compare_versions($phpv, $wantver) < 0) {
-	push(@rv, "Roundcube $ver requires PHP version $wantver or later");
-	}
-return @rv;
-}
-
 sub script_roundcube_php_fullver
 {
 local ($d, $ver, $sinfo, $phpver) = @_;
-return $ver >= 0.9 ? "5.3.7" : 5.2;
+return $ver >= 0.9 ? "5.4.1" : 5.2;
 }
 
 # script_roundcube_params(&domain, version, &upgrade-info)
@@ -356,6 +341,31 @@ $rp =~ s/^$d->{'home'}\///;
 return (1, "RoundCube installation complete. It can be accessed at <a target=_blank href='$url'>$url</a>.", "Under $rp using $dbphptype database $dbname", $url);
 }
 
+# script_wordpress_db_conn_desc()
+# Returns a list of options for config file to update
+sub script_roundcube_db_conn_desc
+{
+my $conn_desc =
+    {
+      'replace' => [ '\$(rcmail_config|config)\[[\'"]db_dsnw[\'"]\]\s*=\s*' =>
+                     '\'$$sdbtype://$$sdbuser:$$sdbpass@$$sdbhost/$$sdbname\';' ],
+      'func' => 'php_quotemeta',
+      'func_params' => 1,
+      'multi' => 1,
+    };
+my $db_conn_desc = 
+    { 'config/config.inc.php' => 
+        {
+           'dbtype' => $conn_desc,
+           'dbuser' => $conn_desc,
+           'dbpass' => $conn_desc,
+           'dbhost' => $conn_desc,
+           'dbname' => $conn_desc,
+        }
+    };
+return $db_conn_desc;
+}
+
 # script_roundcube_uninstall(&domain, version, &opts)
 # Un-installs a RoundCube installation, by deleting the directory and database.
 # Returns 1 on success and a message, or 0 on failure and an error
@@ -384,7 +394,8 @@ sub script_roundcube_latest
 {
 local ($ver) = @_;
 return ( "http://roundcube.net/download/",
-         "roundcubemail-([0-9\\.]+)-complete.tar.gz");
+         $ver >= 1.4 ? "roundcubemail-([0-9\\.]+)-complete.tar.gz"
+		     : "roundcubemail-(1\\.3\\.[0-9\\.]+)-complete.tar.gz" );
 }
 
 sub script_roundcube_site
