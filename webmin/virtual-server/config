@@ -213,6 +213,7 @@ index_cols=dom,user,owner,users,aliases
 append=1
 backup_feature_mail=1
 backup_feature_ssl=1
+combined_cert=0
 avail_spam=1
 ldap_unix=1
 ftp=2

@@ -47,6 +47,7 @@ ipv6_mode=1
 slave_dir=/var/named/slaves
 confirm_rec=0
 soa_style=0
+dnssec_info=1
 max_zones=50
 largezones=0
 allow_underscore=1

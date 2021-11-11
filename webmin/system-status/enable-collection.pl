@@ -8,5 +8,6 @@ $root || die "No root= line found in /etc/webmin/miniserv.conf";
 $ENV{'PERLLIB'} = "$root";
 $ENV{'WEBMIN_CONFIG'} = "/etc/webmin";
 $ENV{'WEBMIN_VAR'} = "/var/webmin";
+delete($ENV{'MINISERV_CONFIG'});
 chdir("$root/system-status");
 exec("$root/system-status/enable-collection.pl", @ARGV) || die "Failed to run $root/system-status/enable-collection.pl : $!";
