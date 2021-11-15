@@ -17,7 +17,7 @@ return "RoundCube Webmail is a browser-based multilingual IMAP client with an ap
 # script_roundcube_versions()
 sub script_roundcube_versions
 {
-return ( "1.5.0", "1.4.11", "1.3.16" );
+return ( "1.5.0", "1.4.12", "1.3.17" );
 }
 
 sub script_roundcube_version_desc
@@ -393,8 +393,9 @@ sub script_roundcube_latest
 {
 local ($ver) = @_;
 return ( "http://roundcube.net/download/",
-         $ver >= 1.4 ? "roundcubemail-([0-9\\.]+)-complete.tar.gz"
-		     : "roundcubemail-(1\\.3\\.[0-9\\.]+)-complete.tar.gz" );
+         $ver >= 1.5 ? "roundcubemail-([0-9\\.]+)-complete.tar.gz" :
+         $ver >= 1.4 ? "roundcubemail-(1\\.4\\.[0-9\\.]+)-complete.tar.gz" :
+		       "roundcubemail-(1\\.3\\.[0-9\\.]+)-complete.tar.gz" );
 }
 
 sub script_roundcube_site
