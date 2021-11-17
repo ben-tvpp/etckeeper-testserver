@@ -60,3 +60,4 @@ unbound:x:501:499:Unbound DNS resolver:/etc/unbound:/sbin/nologin
 qemu:x:107:107:qemu user:/:/sbin/nologin
 radvd:x:75:75:radvd user:/:/sbin/nologin
 rpcuser:x:29:29:RPC Service User:/var/lib/nfs:/sbin/nologin
+nfsnobody:x:65534:65534:Anonymous NFS User:/var/lib/nfs:/sbin/nologin

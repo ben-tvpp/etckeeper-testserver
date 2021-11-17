@@ -85,3 +85,4 @@ radvd:x:75:
 rpcuser:x:29:
 nfsnobody:x:65534:
 libvirt:x:498:
+stage:x:1036:

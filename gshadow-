@@ -83,3 +83,4 @@ qemu:!::
 radvd:!::
 rpcuser:!::
 nfsnobody:!::
+libvirt:!::
