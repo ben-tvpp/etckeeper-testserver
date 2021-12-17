@@ -18,7 +18,7 @@ return "Django is a high-level Python Web framework that encourages rapid develo
 # script_django_versions()
 sub script_django_versions
 {
-return ( "3.2.9", "2.2.24", "1.11.29" );
+return ( "3.2.10", "2.2.25", "1.11.29" );
 }
 
 sub script_django_can_upgrade
@@ -418,7 +418,7 @@ local $url = &script_path_url($d, $opts);
 local $adminurl = $url."admin/";
 local $rp = $opts->{'dir'};
 $rp =~ s/^$d->{'home'}\///;
-return (1, "Initial Django installation complete. Go to <a target=_blank href='$adminurl'>$adminurl</a> to manage it. Django is a development environment, so it doesn't do anything by itself!. Some applications may require you to set the PYTHONPATH environment variable to '$opts->{'dir'}/lib/python'.", "Under $rp", $url, $domuser, $dompass);
+return (1, "Initial Django installation complete. Go to <a target=_blank href='$adminurl'>$adminurl</a> to manage it. Django is a development environment, so it doesn't do anything by itself. Some applications may require you to set the <tt>PYTHONPATH</tt> environment variable to '$opts->{'dir'}/lib/python'.", "Under $rp", $url, $domuser, $dompass);
 }
 
 # script_django_uninstall(&domain, version, &opts)
@@ -484,6 +484,28 @@ if ($opts->{'newdb'}) {
 	}
 
 return (1, "Django directory and tables deleted.");
+}
+
+sub script_django_db_conn_desc
+{
+my $db_conn_desc = 
+    { 'settings.py' =>
+        {
+           'dbpass' =>
+           {
+               'func'        => 'php_quotemeta',
+               'func_params' => 1,
+               'replace'     => [ '[\'"]PASSWORD[\'"]\s*:.*?' =>
+                                  '\'PASSWORD\': \'$$sdbpass\',' ],
+           },
+           'dbuser' =>
+           {
+               'replace'     => [ '[\'"]USER[\'"]\s*:.*?' =>
+                                  '\'USER\': \'$$sdbuser\',' ],
+           },
+        }
+    };
+return $db_conn_desc;
 }
 
 # script_django_latest(version)
