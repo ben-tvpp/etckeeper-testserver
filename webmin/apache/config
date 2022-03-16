@@ -9,6 +9,7 @@ max_servers=100
 httpd_dir=/etc/httpd
 start_cmd=systemctl start httpd.service
 show_order=0
+format_config=1
 test_always=0
 apachectl_path=/usr/sbin/apachectl
 show_names=0

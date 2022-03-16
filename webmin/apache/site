@@ -1,4 +1,6 @@
 modules=core/2.46 mod_php5/2.46 mod_rewrite/2.46 mod_actions/2.46 mod_alias/2.46 mod_auth_basic/2.46 mod_auth_digest/2.46 mod_authn_dbm/2.46 mod_authn_file/2.46 mod_authz_dbm/2.46 mod_authz_groupfile/2.46 mod_authz_host/2.46 mod_authz_owner/2.46 mod_autoindex/2.46 mod_cache/2.46 mod_dir/2.46 mod_env/2.46 mod_ext_filter/2.46 mod_include/2.46 mod_info/2.46 mod_log_config/2.46 mod_mime_magic/2.46 mod_mime/2.46 mod_negotiation/2.46 mod_setenvif/2.46 mod_status/2.46 mod_suexec/2.46 mod_userdir/2.46 mod_vhost_alias/2.46 mod_dav/2.46 mod_mpm_prefork/2.46 mod_proxy/2.46 mod_proxy_balancer/2.46 mod_ssl/2.46 mod_cgi/2.46 mod_fcgid/2.46
-webmin=1.981
+webmin=1.990
+version=2.46
 path=/usr/sbin/httpd
-size=523648
+fullversion=2.4.6
+size=523640

@@ -22,4 +22,5 @@ cron_get_command=crontab -u USER -l
 cron_dir=/var/spool/cron
 cron_deny_all=2
 max_jobs=100
+init_name=crond
 show_next=0
