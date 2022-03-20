@@ -52,4 +52,4 @@ preroot_root=authentic-theme
 ipextracas_clientarea.tvpp.freeddns.org,*.clientarea.tvpp.freeddns.org=/home/tvppclientarea/ssl.ca
 root=/usr/libexec/webmin
 mimetypes=/usr/libexec/webmin/mime.types
-server=MiniServ/1.981
+server=MiniServ/1.990

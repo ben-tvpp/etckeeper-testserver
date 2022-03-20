@@ -24,7 +24,7 @@ return "WHMCS is an all-in-one client management, billing & support solution for
 # script_whmcs_versions()
 sub script_whmcs_versions
 {
-return ( "8.1.3", "8.0.5", "7.10.3" );
+return ( "8.4.0", "8.0.5", "7.10.3" );
 }
 
 sub script_whmcs_gpl
@@ -45,23 +45,6 @@ return "Commerce";
 sub script_whmcs_php_vers
 {
 return ( 5 );
-}
-
-# script_whmcs_depends(&domain, version)
-sub script_whmcs_depends
-{
-local ($d, $ver, $sinfo, $phpver) = @_;
-local $wantver = &script_whmcs_php_fullver($d, $ver, $sinfo);
-if ($wantver) {
-	local $phpv = &get_php_version($phpver || 5, $d);
-	if (!$phpv) {
-		return ("Could not work out exact PHP version");
-		}
-	if (&compare_versions($phpv, $wantver) < 0) {
-		return ("WHMCS requires PHP version $wantver or later");
-		}
-	}
-return ( );
 }
 
 sub script_whmcs_php_fullver
@@ -518,11 +501,36 @@ if ($opts->{'newdb'}) {
 return (1, "WHMCS directory and tables deleted.");
 }
 
+sub script_whmcs_db_conn_desc
+{
+my $db_conn_desc = 
+    { 'configuration.php' =>
+        {
+           'dbpass' =>
+           {
+               'func'        => 'php_quotemeta',
+               'func_params' => 1,
+               'replace'     => [ '\$db_password\s*=' =>
+                                  '$db_password = \'$$sdbpass\';' ],
+           },
+           'dbuser' =>
+           {
+               'replace'     => [ '\$db_username\s*=' =>
+                                  '$db_username = \'$$sdbuser\';' ],
+           },
+        }
+    };
+return $db_conn_desc;
+}
+
 sub script_whmcs_latest
 {
 local ($ver) = @_;
-return ( "https://docs.whmcs.com/Release_Notes",
-	     "Version_([0-9\.]+)_Release" );
+if ($ver >= 8.4) {
+	return ( "https://docs.whmcs.com/Release_Notes",
+		 "Version_([0-9\.]+)_Release" );
+	}
+return ( );
 }
 
 sub script_whmcs_site
